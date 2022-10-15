@@ -1,0 +1,54 @@
+### create parent
+POST http://localhost:8081/api/catalog
+Content-Type: application/json
+
+{
+  "parentId": 0,
+  "name": "parent3"
+}
+
+###### create child todo parentId
+POST http://localhost:8081/api/catalog
+Content-Type: application/json
+
+{
+  "name": "child_3.3",
+  "parentId": 16
+}
+
+###### create second child todo parentId
+POST http://localhost:8081/api/catalog
+Content-Type: application/json
+
+{
+  "name": "child_2.1",
+  "parentId": 8
+}
+
+###### create first child lvl 3 todo parentId
+POST http://localhost:8081/api/catalog
+Content-Type: application/json
+
+{
+  "name": "child_3",
+  "parentId": 19
+}
+
+###
+PUT http://localhost:8081/api/catalog/
+Content-Type: application/json
+
+{
+  "name": "updated_child",
+  "parentId": 12,
+  "id": 13
+}
+
+### delete by id
+DELETE http://localhost:8081/api/catalog/11
+
+### find by id with children
+GET http://localhost:8081/api/catalog/16
+
+### pageble
+GET http://localhost:8081/api/catalog/page/0/size/3
